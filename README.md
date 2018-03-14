@@ -15,4 +15,4 @@ Also make sure to enable your project in [Travis CI](https://travis-ci.org). Thi
 
 # Adding patches
 The docker build script will automatically merge all branches from
-https://github.com/status-im/nim repo starting with `status-autopatch-`.
+[status-im/nim](https://github.com/status-im/nim) repo starting with `status-autopatch-`.
