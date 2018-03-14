@@ -1,14 +1,13 @@
-FROM yglukhov/debian-pre-nim
-MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
+FROM statusteam/debian-pre-nim
+MAINTAINER Yuriy Glukhov <iurii@status.im>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
-#ENV NIM_PATCH_BRANCHES my-patch
 RUN git clone https://github.com/nim-lang/nim.git \
     && cd nim \
-    && git remote add yglukhov https://github.com/yglukhov/nim.git \
-    && git fetch yglukhov \
+    && git remote add statusim https://github.com/status-im/nim.git \
+    && git fetch statusim \
     && git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
-    && for i in $NIM_PATCH_BRANCHES; do git merge yglukhov/$i; done \
+    && for b in $(git branch -a --list 'statusim/status-autopatch-*'); do git merge $b; done; \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
     && sh build.sh \

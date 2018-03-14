@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER Yuriy Glukhov <yuriy.glukhov@gmail.com>
+MAINTAINER Yuriy Glukhov <iurii@status.im>
 ADD run.sh /bin/run
 RUN while ! apt-get update; do true; done \
     && while ! apt-get install -y gcc g++ mercurial git nodejs libssl-dev; do true; done \
