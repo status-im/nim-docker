@@ -7,7 +7,7 @@ RUN git clone https://github.com/nim-lang/nim.git \
     && git fetch statusim \
     && git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
-    && for b in $(git branch -a --list 'statusim/status-autopatch-*'); do git merge $b; done; \
+    && for b in $(git branch -a --list 'statusim/status-autopatch-*'); do git merge $b; done \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
     && sh build.sh \
