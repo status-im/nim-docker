@@ -1,13 +1,10 @@
 FROM statusteam/debian-pre-nim
 MAINTAINER Yuriy Glukhov <iurii@status.im>
 ENV PATH $PATH:/nim/bin:/root/.nimble/bin
-RUN git clone https://github.com/nim-lang/nim.git \
+RUN git clone https://github.com/status-im/nim.git \
     && cd nim \
-    && git remote add statusim https://github.com/status-im/nim.git \
-    && git fetch statusim \
     && git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
-    && for b in $(git branch -a --list 'statusim/status-autopatch-*'); do git merge $b; done \
     && git clone --depth 1 https://github.com/nim-lang/csources.git \
     && cd csources \
     && sh build.sh \
