@@ -2,7 +2,9 @@
 
 # Introduction
 
-This is a helper repo for auto-building a docker image with the latest [Nim](https://github.com/nim-lang/Nim) development version along with Status patches. To set up [Travis CI](https://travis-ci.org) for your project by using this image, copy the following lines to your `.travis.yml` file in the root of your repository:
+This is a helper repo for auto-building a docker image with the [Nim](https://github.com/status-im/Nim) version that status currently uses for building [Nimbus](http://github.com/status-im/nimbus)
+
+To set up [Travis CI](https://travis-ci.org) for your project by using this image, copy the following lines to your `.travis.yml` file in the root of your repository:
 ```yml
 sudo: required
 services:
@@ -16,5 +18,5 @@ script:
 Also, make sure that your project is enabled in [Travis CI](https://travis-ci.org). This configuration will run `nimble install -dy && nimble test` in the root of your repository.
 
 # Adding Patches
-The docker build script will automatically merge all branches from the 
-[status-im/nim](https://github.com/status-im/nim) repo, starting with `status-autopatch-`.
+
+This build follows the nimbus branch of Nim and will automatically update to any version used there - to add a patch to, simple merge it into the nimbus branch
