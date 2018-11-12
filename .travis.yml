@@ -1,5 +1,9 @@
 sudo: required
 services:
   - docker
+
+before_install:
+  - sudo apt-get install qemu-user
+
 script:
   - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" && ./build.sh && docker logout
