@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - sudo apt-get install qemu-user
+  - sudo apt-get install qemu-user-static
 
 script:
   - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" && ./build.sh && docker logout
