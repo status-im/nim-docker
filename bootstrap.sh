@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -ev
+
 apt-get update
 apt-get install -y gcc g++ make git libssl-dev wget
 apt-get autoremove -y
