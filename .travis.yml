@@ -11,6 +11,11 @@ before_install:
   #- docker run --rm --privileged multiarch/qemu-user-static:register --reset
   - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
 
+env:
+  - ARCH="" BASE=""
+  - ARCH="arm" BASE="arm32v7"
+  - ARCH="aarch64 BASE="arm64v8"
+
 script: 
   - ./build.sh
   - docker logout

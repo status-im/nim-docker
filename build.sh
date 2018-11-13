@@ -30,7 +30,9 @@ then
     buildAndPush debian-pre-nim
 fi
 
-#buildAndPush nim-base
-#buildAndPushArch arm32v7 arm
-buildAndPushArch arm64v8 aarch64
+if [ "$BASE" == "" -o "$ARCH" == "" ]; then
+  buildAndPush nim-base
+else
+  buildAndPushArch $BASE $ARCH
+fi
 
