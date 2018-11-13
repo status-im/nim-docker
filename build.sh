@@ -5,7 +5,6 @@ set -ev
 buildAndPush() {
     docker build -t statusteam/$1 $1
 #    docker push statusteam/$1
-    rm $1/bootstrap.sh $1/qemu-*-static
 }
 
 buildAndPushArch() {
