@@ -30,7 +30,7 @@ then
     buildAndPush debian-pre-nim
 fi
 
-if [ "$BASE" == "" -o "$ARCH" == "" ]; then
+if [ "$BASE" = "" -o "$ARCH" = "" ]; then
   buildAndPush nim-base
 else
   buildAndPushArch $BASE $ARCH
