@@ -4,10 +4,10 @@ set -ev
 
 buildAndPush() {
     cp bootstrap.sh $1
-    cp /usr/bin/qemu-arm-static $1
+    cp /usr/bin/qemu-*-static $1
     docker build -t statusteam/$1 $1
 #    docker push statusteam/$1
-    rm $1/bootstrap.sh $1/qemu-arm-static
+    rm $1/bootstrap.sh $1/qemu-*-static
 }
 
 if [ "$1" = "all" -o "$BUILD_ALL" = "true" ]
