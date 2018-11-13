@@ -7,8 +7,8 @@ services:
 
 before_install:
   - sudo apt-get install qemu-user-static
-  - docker pull multiarch/qemu-user-static:register
-  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+  #- docker pull multiarch/qemu-user-static:register
+  #- docker run --rm --privileged multiarch/qemu-user-static:register --reset
   - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
 
 script: 
