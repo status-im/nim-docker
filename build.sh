@@ -16,5 +16,5 @@ then
 fi
 
 #buildAndPush nim-base
-buildAndPush nim-base-arm32v7
-#buildAndPush nim-base-arm64v8
+#buildAndPush nim-base-arm32v7
+buildAndPush nim-base-arm64v8
