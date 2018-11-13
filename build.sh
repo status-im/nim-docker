@@ -3,11 +3,26 @@
 set -ev
 
 buildAndPush() {
-    cp bootstrap.sh $1
-    cp /usr/bin/qemu-*-static $1
     docker build -t statusteam/$1 $1
 #    docker push statusteam/$1
     rm $1/bootstrap.sh $1/qemu-*-static
+}
+
+buildAndPushArch() {
+    # Copy template to temporary dir, make substitutions and run docker build
+    BASE=$1
+    DIR=tmp-$BASE
+    TAG=nim-base:$BASE
+    ARCH=$2
+
+    mkdir -p $DIR
+    cp bootstrap.sh /usr/bin/qemu-$ARCH-static $DIR
+    cp Dockerfile.arch $DIR/Dockerfile
+    sed -i s/BASE/$BASE/ $DIR/Dockerfile
+    sed -i s/ARCH/$ARCH/ $DIR/Dockerfile
+    docker build -t statusteam/$TAG $DIR
+#    docker push statusteam/$TAG
+    rm -rf $DIR
 }
 
 if [ "$1" = "all" -o "$BUILD_ALL" = "true" ]
@@ -16,6 +31,6 @@ then
 fi
 
 #buildAndPush nim-base
-#buildAndPush nim-base-arm32v7
-buildAndPush nim-base-arm64v8
+#buildAndPushArch arm32v7 arm
+buildAndPushArch arm64v8 aarch64
 

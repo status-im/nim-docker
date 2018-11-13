@@ -3,7 +3,7 @@
 set -ev
 
 apt-get update
-apt-get install -y gcc g++ make git libssl-dev wget
+apt-get install -y --allow-unauthenticated gcc g++ make git libssl-dev wget
 apt-get autoremove -y
 apt-get clean all
 rm -rf /var/lib/apt/lists/*
