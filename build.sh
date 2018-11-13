@@ -15,6 +15,7 @@ buildAndPushArch() {
     TAG=nim-base:$BASE
     ARCH=$2
 
+    echo "Setting up $DIR for $ARCH"
     mkdir -p $DIR
     cp bootstrap.sh /usr/bin/qemu-$ARCH-static $DIR
     cp Dockerfile.arch $DIR/Dockerfile
