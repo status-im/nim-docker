@@ -1,0 +1,5 @@
+FROM BASE/debian:stable-slim
+ENV PATH $PATH:/nim/bin:/root/.nimble/bin
+COPY ./bootstrap.sh ./
+COPY ./qemu-ARCH-static /usr/bin/
+RUN sh ./bootstrap.sh

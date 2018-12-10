@@ -1,5 +1,23 @@
 sudo: required
+
+dist: xenial
+
+language: bash
+
 services:
   - docker
-script:
-  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER" && ./build.sh && docker logout
+
+before_install:
+  - sudo apt-get install qemu-user-static
+  #- docker pull multiarch/qemu-user-static:register
+  #- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+  - docker login "--password=$DOCKER_PASS" "--username=$DOCKER_USER"
+
+env:
+  - ARCH="" BASE=""
+  - ARCH="arm" BASE="arm32v7"
+  - ARCH="aarch64" BASE="arm64v8"
+
+script: 
+  - ./build.sh
+  - docker logout
