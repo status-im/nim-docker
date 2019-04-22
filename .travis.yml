@@ -15,8 +15,9 @@ before_install:
 
 env:
   - ARCH="" BASE=""
-  - ARCH="arm" BASE="arm32v7"
-  - ARCH="aarch64" BASE="arm64v8"
+  # TODO disabled on docker, too slow - can run locally
+  # - ARCH="arm" BASE="arm32v7"
+  # - ARCH="aarch64" BASE="arm64v8"
 
 script: 
   - ./build.sh
